@@ -23,22 +23,24 @@ export const signup = (user) => {
 }
 
 export const login = (user) => {
-    
-    return Auth.Login(user).then(
-        (data) => {
-            return{
-                type: LOGIN_SUCCESS,
-                payload: data,
-            }
-                .catch(error => {
-                    if (error.response) {
-                        return {
-                            type: LOGIN_FAIL,
-                        }
-                    }
-                })
-        })
-}
+     Auth.Login(user).then(
+      (data) => {
+        return{
+          type: LOGIN_SUCCESS,
+          payload: data ,
+        };
+  
+      },
+      (error) => {
+        return{
+          type: LOGIN_FAIL,
+        };
+  
+      }
+    );
+  }
+        
+
 
 export const signout = () => {
     Auth.Signout();

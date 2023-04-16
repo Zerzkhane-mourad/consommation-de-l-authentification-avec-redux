@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch , useSelector } from 'react-redux';
 import { login } from '../actions/auth'
-import toastr from 'toastr';
-import "toastr/build/toastr.css";
+
 
 
 
@@ -28,11 +27,6 @@ const Signin = (props) => {
 
         e.preventDefault();
         dispatch(login(user))
-        .then(()=>{
-            navigate('/dashboard')
-        })
-
-
     }
 
     return (
